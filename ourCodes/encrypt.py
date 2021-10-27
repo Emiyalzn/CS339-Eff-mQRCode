@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import matplotlib.image as image
 import numpy as np
 from math import *
 from scipy.interpolate import interp1d
