@@ -16,3 +16,7 @@ Course Project for CS339: Computer Networks🤗.
 ### Report part
 - 答辩PPT，讲稿
 - 大作业报告（倾向于英文报告，比较有逼格，中文也行吧）
+
+## Environment
+- anaconda, python=3.8 (conda create -n xx python=3.8)
+- opencv-python (pip install opencv-python)
