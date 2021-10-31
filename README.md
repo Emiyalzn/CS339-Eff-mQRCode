@@ -20,3 +20,7 @@ Course Project for CS339: Computer Networks🤗.
 ## Environment
 - anaconda, python=3.8 (conda create -n xx python=3.8)
 - opencv-python (pip install opencv-python)
+- conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge -c nvidia
+- pip install pillow
+- pip install dominate
+- pip install visdom
