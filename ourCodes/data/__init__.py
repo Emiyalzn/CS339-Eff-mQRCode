@@ -45,7 +45,6 @@ def CreateDataLoader(opt):
     data_loader.initialize(opt)
     return data_loader
 
-
 # Wrapper class of Dataset class that performs
 # multi-threaded data loading
 class CustomDatasetDataLoader(BaseDataLoader):
