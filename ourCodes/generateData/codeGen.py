@@ -33,7 +33,7 @@ def getImagePathListFromRoot(root, shuffle=False):
     return pathList
 
 def makeVideo():
-    path = '.'
+    path = '..'
     fileList = getImagePathListFromRoot(path, True)
     # print(fileList)
     fps = 0.5
