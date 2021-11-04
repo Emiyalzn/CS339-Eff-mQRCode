@@ -4,7 +4,6 @@ import numpy as np
 from PIL import Image
 import os
 
-
 # Converts a Tensor into an image array (numpy)
 # |imtype|: the desired type of the converted numpy array
 def tensor2im(input_image, imtype=np.uint8):
