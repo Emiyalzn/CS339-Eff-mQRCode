@@ -83,16 +83,6 @@ def define_G(input_nc, output_nc, ngf, netG, norm='batch', use_dropout=False, in
         net = ResnetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=6)
     elif netG == 'resnet_4blocks':
         net = ResnetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=4)
-    elif netG == 'mobilenet_9blocks':
-        net = MobilenetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=9,expand_radio=expand_radio)
-    elif netG == 'mobilenet_6blocks':
-        net = MobilenetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=6,expand_radio=expand_radio)
-    elif netG == 'mobilenet_5blocks':
-        net = MobilenetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=5,expand_radio=expand_radio)
-    elif netG == 'mobilenet_4blocks':
-        net = MobilenetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=4,expand_radio=expand_radio)
-    elif netG == 'mobilenet_2blocks':
-        net = MobilenetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=2,expand_radio=expand_radio)
     elif netG == 'unet_128':
         net = UnetGenerator(input_nc, output_nc, 7, ngf, norm_layer=norm_layer, use_dropout=use_dropout)
     elif netG == 'unet_256':
@@ -168,8 +158,6 @@ class FocalLoss(nn.Module):
 
 # Defines the generator that consists of Resnet blocks between a few
 # downsampling/upsampling operations.
-# Code and idea originally from Justin Johnson's architecture.
-# https://github.com/jcjohnson/fast-neural-style/
 class ResnetGenerator(nn.Module):
     def __init__(self, input_nc, output_nc, ngf=64, norm_layer=nn.BatchNorm2d, use_dropout=False, n_blocks=6, padding_type='reflect'):
         assert(n_blocks >= 0)
@@ -218,122 +206,6 @@ class ResnetGenerator(nn.Module):
         return self.model(input)
         #return (self.model(input)+1)/2.0 * 255.0  #use for transform model
 
-class MobilenetGenerator(nn.Module):
-    def __init__(self, input_nc, output_nc, ngf=64, norm_layer=nn.BatchNorm2d, use_dropout=False, n_blocks=6, padding_type='reflect',expand_radio=6):
-        assert(n_blocks >= 0)
-        super(MobilenetGenerator, self).__init__()
-        self.input_nc = input_nc
-        self.output_nc = output_nc
-        self.ngf = ngf
-        if type(norm_layer) == functools.partial:
-            use_bias = norm_layer.func == nn.InstanceNorm2d
-        else:
-            use_bias = norm_layer == nn.InstanceNorm2d
-
-        model = [nn.ReflectionPad2d(3),
-                 nn.Conv2d(input_nc, ngf, kernel_size=7, padding=0,
-                           bias=use_bias),
-                 norm_layer(ngf),
-                 nn.ReLU(True)]
-
-        n_downsampling = 2
-        for i in range(n_downsampling):
-            mult = 2**i
-            model += [nn.Conv2d(ngf * mult, ngf * mult * 2, kernel_size=3,
-                                stride=2, padding=1, bias=use_bias),
-                      norm_layer(ngf * mult * 2),
-                      nn.ReLU(True)]
-
-        mult = 2**n_downsampling
-        for i in range(n_blocks):
-            model += [LinearBottleneck(ngf * mult,ngf * mult,norm_layer=norm_layer,t=expand_radio)]
-
-        for i in range(n_downsampling):
-            mult = 2**(n_downsampling - i)
-            model += [nn.ConvTranspose2d(ngf * mult, int(ngf * mult / 2),
-                                         kernel_size=3, stride=2,
-                                         padding=1, output_padding=1,
-                                         bias=use_bias),
-                      norm_layer(int(ngf * mult / 2)),
-                      nn.ReLU(True)]
-        model += [nn.ReflectionPad2d(3)]
-        model += [nn.Conv2d(ngf, output_nc, kernel_size=7, padding=0)]
-        model += [nn.Tanh()]
-
-        self.model = nn.Sequential(*model)
-
-    def forward(self, input):
-        return self.model(input)
-       # return (self.model(input)+1)/2.0 * 255.0  #use for transform model
-
-class LinearBottleneck(nn.Module):
-    def __init__(self, inplanes, outplanes, norm_layer=nn.BatchNorm2d,stride=1, t=6, activation=nn.ReLU): #test mobilenet should change to nn.relu
-        super(LinearBottleneck, self).__init__()
-      #  norm_layer = nn.BatchNorm2d
-        self.conv1 = nn.Conv2d(inplanes, inplanes * t, kernel_size=1, bias=False)
-        self.bn1 = norm_layer(inplanes * t)
-        self.conv2 = nn.Conv2d(inplanes * t, inplanes * t, kernel_size=3, stride=stride, padding=1, bias=False,
-                               groups=inplanes * t)
-        self.bn2 = norm_layer(inplanes * t)
-        self.conv3 = nn.Conv2d(inplanes * t, outplanes, kernel_size=1, bias=False)
-        self.bn3 = norm_layer(outplanes)
-        self.activation = activation(inplace=True)
-        self.stride = stride
-        self.t = t
-        self.inplanes = inplanes
-        self.outplanes = outplanes
-
-    def forward(self, x):
-        residual = x
-
-        out = self.conv1(x)
-        out = self.bn1(out)
-        out = self.activation(out)
-
-        out = self.conv2(out)
-        out = self.bn2(out)
-        out = self.activation(out)
-
-        out = self.conv3(out)
-        out = self.bn3(out)
-
-        #if self.stride == 1 and self.inplanes == self.outplanes:
-        out += residual
-
-        return out
-class FPNBottleneck3(nn.Module):
-    def __init__(self, inplanes, outplanes, norm_layer=nn.BatchNorm2d,stride=1, t=6, activation=nn.ReLU6):
-        super(FPNBottleneck3, self).__init__()
-      #  norm_layer = nn.BatchNorm2d
-        self.conv1 = nn.Conv2d(inplanes, inplanes * t, kernel_size=1, bias=False)
-        self.bn1 = norm_layer(inplanes * t)
-        self.conv2 = nn.Conv2d(inplanes * t, inplanes * t, kernel_size=3, stride=stride, padding=1, bias=False,
-                               groups=inplanes * t)
-        self.bn2 = norm_layer(inplanes * t)
-        self.conv3 = nn.Conv2d(inplanes * t, outplanes, kernel_size=1, bias=False)
-        self.bn3 = norm_layer(outplanes)
-        self.activation = activation(inplace=True)
-        self.stride = stride
-        self.t = t
-        self.inplanes = inplanes
-        self.outplanes = outplanes
-
-    def forward(self, x):
-        residual = x
-        #block1
-        out = self.conv1(x)
-        out = self.bn1(out)
-        out = self.activation(out)
-
-        out = self.conv2(out)
-        out_save1 = self.bn2(out)
-        out= self.activation(out_save1)
-
-        out = self.conv3(out)
-        out = self.bn3(out)
-
-        out +=residual
-# Define a resnet block
 class ResnetBlock(nn.Module):
     def __init__(self, dim, padding_type, norm_layer, use_dropout, use_bias):
         super(ResnetBlock, self).__init__()
@@ -523,26 +395,6 @@ class PixelDiscriminator(nn.Module):
 
     def forward(self, input):
         return self.net(input)
-
-def _make_divisible(v, divisor, min_value=None):
-    """
-    This function is taken from the original tf repo.
-    It ensures that all layers have a channel number that is divisible by 8
-    It can be seen here:
-    https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mobilenet.py
-    :param v:
-    :param divisor:
-    :param min_value:
-    :return:
-    """
-    if min_value is None:
-        min_value = divisor
-    new_v = max(min_value, int(v + divisor / 2) // divisor * divisor)
-    # Make sure that round down does not go down by more than 10%.
-    if new_v < 0.9 * v:
-        new_v += divisor
-    return new_v
-
 
 
 

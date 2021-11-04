@@ -28,7 +28,6 @@ if __name__ == '__main__':
     webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.epoch))
     # test with eval mode. This only affects layers like batchnorm and dropout.
     # pix2pix: we use batchnorm and dropout in the original pix2pix. You can experiment it with and without eval() mode.
-    # CycleGAN: It should not affect CycleGAN as CycleGAN uses instancenorm without dropout.
     # print('test')
 
     if opt.eval:

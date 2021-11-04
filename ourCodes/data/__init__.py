@@ -14,7 +14,7 @@ def find_dataset_using_name(dataset_name):
     # be instantiated. It has to be a subclass of BaseDataset,
     # and it is case-insensitive.
     dataset = None
-    target_dataset_name = dataset_name.replace('_', '') + 'datasets'
+    target_dataset_name = dataset_name.replace('_', '') + 'dataset'
     for name, cls in datasetlib.__dict__.items():
         if name.lower() == target_dataset_name.lower() \
            and issubclass(cls, BaseDataset):

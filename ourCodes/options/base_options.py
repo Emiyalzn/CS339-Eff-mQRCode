@@ -13,7 +13,7 @@ class BaseOptions():
         parser.add_argument('--dataroot', required=True,
                             help='path to images (should have subfolders trainA, trainB, valA, valB, etc)')
         parser.add_argument('--batch_size', type=int, default=1, help='input batch size')
-        parser.add_argument('--loadSize', type=int, default=286, help='scale images to this size')
+        parser.add_argument('--loadSize', type=int, default=288, help='scale images to this size')
         parser.add_argument('--fineSize', type=int, default=256, help='then crop to this size')
         parser.add_argument('--display_winsize', type=int, default=256,
                             help='display window size for both visdom and HTML')
@@ -27,7 +27,7 @@ class BaseOptions():
         parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
         parser.add_argument('--name', type=str, default='experiment_name',
                             help='name of the experiment. It decides where to store samples and models')
-        parser.add_argument('--dataset_mode', type=str, default='unaligned',
+        parser.add_argument('--dataset_mode', type=str, default='aligned',
                             help='chooses how datasets are loaded. [unaligned | aligned | single]')
         parser.add_argument('--model', type=str, default='cycle_gan',
                             help='chooses which model to use. cycle_gan, pix2pix, test')

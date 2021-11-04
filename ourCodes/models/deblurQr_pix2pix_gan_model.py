@@ -31,7 +31,7 @@ class DeblurQrPix2PixGANModel(BaseModel):
             self.model_names = ['G']
         # load/define networks
         self.netG = networks.define_G(opt.input_nc, opt.output_nc, opt.ngf, opt.netG, opt.norm,
-                                      not opt.dropout, opt.init_type, opt.init_gain, self.gpu_ids)
+                                      not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
         if self.isTrain:
             use_sigmoid = opt.no_lsgan
             self.netD = networks.define_D(opt.input_nc + opt.output_nc, opt.ndf, opt.netD,

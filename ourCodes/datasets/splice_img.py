@@ -76,9 +76,6 @@ def splice_all_image(dir_path):
             dirlist.append(dir)
     result_path ='./results/qr_cyclegan'
     for dir in dirlist:
-
-       # for root, dirs, files in os.walk(dir_path+dir): # traverse each folder
-
         dir_path_crop =os.path.join(dir_path,dir)
       #  print(dir_path_crop)
         pinjie(dir_path_crop,result_path+'/result_set/',dir)
