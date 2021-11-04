@@ -1,4 +1,6 @@
 .idea/
+.DS_Store
 ourCodes/.idea/
 ourCodes/__pycache__/
 ourCodes/datasets/qrcode/
+ourCodes/.DS_Store
