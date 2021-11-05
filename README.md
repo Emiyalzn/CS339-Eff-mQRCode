@@ -25,3 +25,8 @@ Course Project for CS339: Computer Networks🤗.
 - pip install dominate
 - pip install visdom
 - connect to visdom: ssh -L 8097:127.0.0.1:8097 lizenan@202.121.181.105 port 225
+
+## Run Experiments
+
+- CycleGan: python train.py --dataroot ./datasets/qrcode --name deblurLightCycleGAN_4block_e6 --model deblurQr_cycle_gan  --batch_size 1 --resize_or_crop scale_width_and_crop --loadSize 372 --fineSize 372 --netG mobilenet_5blocks --norm instance --expand_radio 6
+- Pix2PixGan: python train.py --dataroot ./datasets/qrcode --name deblurPix2PixGAN_default --model deblurQr_pix2pix_gan  --batch_size 1 --resize_or_crop scale_width_and_crop --no_flip
