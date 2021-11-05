@@ -83,6 +83,12 @@ def define_G(input_nc, output_nc, ngf, netG, norm='batch', use_dropout=False, in
         net = ResnetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=6)
     elif netG == 'resnet_4blocks':
         net = ResnetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=4)
+    elif netG == 'mobilenet_9blocks':
+        net = MobilenetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=9,expand_radio=expand_radio)
+    elif netG == 'mobilenet_6blocks':
+        net = MobilenetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=6,expand_radio=expand_radio)
+    elif netG == 'mobilenet_5blocks':
+        net = MobilenetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, n_blocks=5,expand_radio=expand_radio)
     elif netG == 'unet_128':
         net = UnetGenerator(input_nc, output_nc, 7, ngf, norm_layer=norm_layer, use_dropout=use_dropout)
     elif netG == 'unet_256':
@@ -134,27 +140,87 @@ class GANLoss(nn.Module):
         target_tensor = self.get_target_tensor(input, target_is_real)
         return self.loss(input, target_tensor)
 
-class FocalLoss(nn.Module):
-    def __init__(self, use_lsgan=True, target_real_label=1.0, target_fake_label=0.0,gamma=0.0):
-        super(FocalLoss, self).__init__()
-        self.register_buffer('real_label', torch.tensor(target_real_label))
-        self.register_buffer('fake_label', torch.tensor(target_fake_label))
-        self.gamma = gamma
-        if use_lsgan:
-            self.loss = nn.MSELoss()
+class MobilenetGenerator(nn.Module):
+    def __init__(self, input_nc, output_nc, ngf=64, norm_layer=nn.BatchNorm2d, use_dropout=False, n_blocks=6, padding_type='reflect',expand_radio=6):
+        assert(n_blocks >= 0)
+        super(MobilenetGenerator, self).__init__()
+        self.input_nc = input_nc
+        self.output_nc = output_nc
+        self.ngf = ngf
+        if type(norm_layer) == functools.partial:
+            use_bias = norm_layer.func == nn.InstanceNorm2d
         else:
-            self.loss = nn.BCELoss()
+            use_bias = norm_layer == nn.InstanceNorm2d
 
-    def get_target_tensor(self, input, target_is_real):
-        if target_is_real:
-            target_tensor = self.real_label
-        else:
-            target_tensor = self.fake_label
-        return target_tensor.expand_as(input)
+        model = [nn.ReflectionPad2d(3),
+                 nn.Conv2d(input_nc, ngf, kernel_size=7, padding=0,
+                           bias=use_bias),
+                 norm_layer(ngf),
+                 nn.ReLU(True)]
 
-    def __call__(self, input, target_is_real):
-        target_tensor = self.get_target_tensor(input, target_is_real)
-        return (1.0-torch.mean(input))**self.gamma*self.loss(input, target_tensor)
+        n_downsampling = 2
+        for i in range(n_downsampling):
+            mult = 2**i
+            model += [nn.Conv2d(ngf * mult, ngf * mult * 2, kernel_size=3,
+                                stride=2, padding=1, bias=use_bias),
+                      norm_layer(ngf * mult * 2),
+                      nn.ReLU(True)]
+
+        mult = 2**n_downsampling
+        for i in range(n_blocks):
+            model += [LinearBottleneck(ngf * mult,ngf * mult,norm_layer=norm_layer,t=expand_radio)]
+
+        for i in range(n_downsampling):
+            mult = 2**(n_downsampling - i)
+            model += [nn.ConvTranspose2d(ngf * mult, int(ngf * mult / 2),
+                                         kernel_size=3, stride=2,
+                                         padding=1, output_padding=1,
+                                         bias=use_bias),
+                      norm_layer(int(ngf * mult / 2)),
+                      nn.ReLU(True)]
+        model += [nn.ReflectionPad2d(3)]
+        model += [nn.Conv2d(ngf, output_nc, kernel_size=7, padding=0)]
+        model += [nn.Tanh()]
+
+        self.model = nn.Sequential(*model)
+
+    def forward(self, input):
+        return self.model(input)
+
+class LinearBottleneck(nn.Module):
+    def __init__(self, inplanes, outplanes, norm_layer=nn.BatchNorm2d,stride=1, t=6, activation=nn.ReLU): #test mobilenet should change to nn.relu
+        super(LinearBottleneck, self).__init__()
+      #  norm_layer = nn.BatchNorm2d
+        self.conv1 = nn.Conv2d(inplanes, inplanes * t, kernel_size=1, bias=False)
+        self.bn1 = norm_layer(inplanes * t)
+        self.conv2 = nn.Conv2d(inplanes * t, inplanes * t, kernel_size=3, stride=stride, padding=1, bias=False,
+                               groups=inplanes * t)
+        self.bn2 = norm_layer(inplanes * t)
+        self.conv3 = nn.Conv2d(inplanes * t, outplanes, kernel_size=1, bias=False)
+        self.bn3 = norm_layer(outplanes)
+        self.activation = activation(inplace=True)
+        self.stride = stride
+        self.t = t
+        self.inplanes = inplanes
+        self.outplanes = outplanes
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.activation(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.activation(out)
+
+        out = self.conv3(out)
+        out = self.bn3(out)
+
+        out += residual
+
+        return out
 
 # Defines the generator that consists of Resnet blocks between a few
 # downsampling/upsampling operations.
