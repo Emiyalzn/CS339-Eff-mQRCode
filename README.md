@@ -25,6 +25,7 @@ Course Project for CS339: Computer Networks🤗.
 - pip install dominate
 - pip install visdom
 - connect to visdom: ssh -L 8097:127.0.0.1:8097 lizenan@202.121.181.105 port 225
+- ffmpeg
 
 ## Run Experiments
 
