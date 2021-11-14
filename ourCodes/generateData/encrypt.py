@@ -213,18 +213,19 @@ def encrypt(filename):
 
     ######################################
     ## Add Fake Boundary for Camouflage
-    Ifake = addFakeBoundary(Iencode, 200)
+    # Ifake = addFakeBoundary(Iencode, 200)
+    Ifake = Iencode
 
     ######################################
     ## Add white noise
-    Inoise = addWhiteNoise(Ifake, 0.1)
+    Inoise = addWhiteNoise(Ifake, 0.)
 
     ## Leave the three locator
     # top left
     Inoise[0:7*10*ratio, 0:7*10*ratio] = img[0:7*10*ratio, 0:7*10*ratio]
     # top right
     Inoise[0:7*10*ratio, 22*10*ratio:29*10*ratio] = img[0:7*10*ratio, 22*10*ratio:29*10*ratio]
-    # bottom left
+    # bottom left![](mbc19_qrcode.jpg)
     Inoise[22*10*ratio:29*10*ratio, 0:7*10*ratio] = img[22*10*ratio:29*10*ratio, 0:7*10*ratio]
 
     # Save Figures
@@ -234,7 +235,16 @@ def encrypt(filename):
     #     cv2.imwrite('mqrcode.png', Inoise*255)
     # cv2.destroyAllWindows()
 
-    return (Inoise*255).astype(np.uint8)
+    Ibound = np.ones((490, 490))
+    Ibound[100:390, 100:390] = Inoise
+
+    # cv2.imshow('Ibound', Ibound)
+    # k = cv2.waitKey(0)
+    # if k == ord('s'):
+    #     cv2.imwrite('mqrcode.png', Ibound * 255)
+    # cv2.destroyAllWindows()
+
+    return (Ibound*255).astype(np.uint8)
 
 if __name__ == '__main__':
     encrypt('mbc19_qrcode.jpg')

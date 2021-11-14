@@ -6,7 +6,7 @@ from encrypt import *
 import qrcode
 
 def genQRCode():
-    num = 1000
+    num = 2000
     for i in range(num):
         link = f'{i}'
         qr = qrcode.QRCode(
@@ -17,7 +17,7 @@ def genQRCode():
         qr.add_data(link)
         qr.make(fit=True)
         img = qr.make_image(fill='black', back_color='white')
-        img.save(f'groundTruth/QR_{i}.jpg')
+        img.save(f'../datasets/groundTruth/QR_{i}.jpg')
         qr.clear()
 
 def getImagePathListFromRoot(root, shuffle=False):
@@ -30,18 +30,25 @@ def getImagePathListFromRoot(root, shuffle=False):
                 pathList.append(imagePath)
     if shuffle:
         np.random.shuffle(pathList)
+    print(pathList)
+    return pathList
+
+def getImages(root, num_figs):
+    pathList = []
+    for i in range(num_figs):
+        imagePath = os.path.join(root, f"QR_{i}.jpg")
+        pathList.append(imagePath)
     return pathList
 
 def makeVideo():
-    path = '..'
-    fileList = getImagePathListFromRoot(path, True)
+    path = '../datasets/groundTruth'
+    fileList = getImages(path, 2000)
     # print(fileList)
     fps = 0.5
-    size = (290, 290)
-    video = cv2.VideoWriter("Video.avi", cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, size, False)
+    size = (490, 490)
+    video = cv2.VideoWriter("../datasets/mQRCodes.avi", cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, size, False)
 
     for item in fileList:
-        # print(item)
         if item.endswith('.jpg'):
             # print(item)
             image = encrypt(item)

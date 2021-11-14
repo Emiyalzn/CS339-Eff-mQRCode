@@ -13,7 +13,7 @@ class BaseOptions():
         parser.add_argument('--dataroot', required=True,
                             help='path to images (should have subfolders trainA, trainB, valA, valB, etc)')
         parser.add_argument('--batch_size', type=int, default=1, help='input batch size')
-        parser.add_argument('--loadSize', type=int, default=288, help='scale images to this size')
+        parser.add_argument('--loadSize', type=int, default=256, help='scale images to this size')
         parser.add_argument('--fineSize', type=int, default=256, help='then crop to this size')
         parser.add_argument('--display_winsize', type=int, default=256,
                             help='display window size for both visdom and HTML')

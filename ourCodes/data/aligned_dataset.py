@@ -3,7 +3,7 @@ import random
 import torchvision.transforms as transforms
 import torch
 from data.base_dataset import BaseDataset, get_transform
-from data.image_folder import make_dataset
+from data.image_folder import make_dataset, make_dataset_from_indices
 from PIL import Image
 
 class AlignedDataset(BaseDataset):
@@ -18,8 +18,8 @@ class AlignedDataset(BaseDataset):
         self.dir_A = os.path.join(opt.dataroot, opt.phase + 'A')
         self.dir_B = os.path.join(opt.dataroot, opt.phase + 'B')
 
-        self.A_paths = make_dataset(self.dir_A)
-        self.B_paths = make_dataset(self.dir_B)
+        self.A_paths, self.indices = make_dataset(self.dir_A)
+        self.B_paths = make_dataset_from_indices(self.dir_B, self.indices)
 
         self.A_paths = sorted(self.A_paths)
         self.B_paths = sorted(self.B_paths)

@@ -12,8 +12,18 @@ IMG_EXTENSIONS = [
 def is_image_file(filename):
     return any(filename.endswith(extension) for extension in IMG_EXTENSIONS)
 
+def make_dataset_from_indices(dir, indices):
+    images = []
+    assert os.path.isdir(dir), '%s is not a valid directory' % dir
+    for indice in indices:
+        path = os.path.join(dir, indice)
+        images.append(path)
+
+    return images
+
 def make_dataset(dir):
     images = []
+    indices = []
     assert os.path.isdir(dir), '%s is not a valid directory' % dir
 
     for root, _, fnames in sorted(os.walk(dir)):
@@ -21,8 +31,9 @@ def make_dataset(dir):
             if is_image_file(fname):
                 path = os.path.join(root, fname)
                 images.append(path)
+                indices.append('QR_'+fname)
 
-    return images
+    return images, indices
 
 def default_loader(path):
     return Image.open(path).convert('RGB')
