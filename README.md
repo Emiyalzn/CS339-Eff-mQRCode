@@ -31,3 +31,14 @@ Course Project for CS339: Computer Networks🤗.
 
 - CycleGan: python train.py --dataroot ./datasets/qrcode --name deblurLightCycleGAN_4block_e6 --model deblurQr_cycle_gan  --batch_size 1 --resize_or_crop scale_width_and_crop --loadSize 372 --fineSize 372 --netG mobilenet_5blocks --norm instance --expand_radio 6
 - Pix2PixGan: python train.py --dataroot ./datasets/qrcode --name deblurPix2PixGAN_default --model deblurQr_pix2pix_gan  --batch_size 1 --resize_or_crop scale_width_and_crop --no_flip
+
+## Future plan
+
+1. 收集5000张最清晰的图，2000张距离模糊的图，2000张角度模糊的图。 => 标注数据集(wyt)
+2. 训练鲁棒模型（loss下降图，acc上升图），保存checkpoint，留作最后在测试集上测试（每隔几个epoch画一个生成出来的二维码清晰度的图，挑最糊的效果好）、画图。（只保留Pix2PixGan，做的fancy一点即可）(lzn)
+3. 解码时间（需要写个二维码decode的代码）、鲁棒性（极端距离和角度）、准确度比较（能在多少张图上work）。=>三种method最终我们胜出。(together)
+4. xx的解码代码可能需要自己修改一下做到可以开源的地步。(xx)
+5. PPT、论文（中or英）。(together)
+
+
+
