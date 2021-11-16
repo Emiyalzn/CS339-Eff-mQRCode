@@ -4,8 +4,6 @@ from data import CreateDataLoader
 from models import create_model
 from util.visualizer import save_images
 from util import html
-from datasets.splice_img import splice_all_image
-from datasets.crop_img import cut
 
 if __name__ == '__main__':
     opt = TestOptions().parse()
@@ -15,21 +13,16 @@ if __name__ == '__main__':
     opt.serial_batches = True # no shuffle
     opt.no_flip = True # no flip
     opt.display_id = -1 # no visdom display
-    # crop the image into 36 pieces
-    print(opt.dataroot)
-    cut(opt.dataroot)
 
     data_loader = CreateDataLoader(opt)
     dataset = data_loader.load_data()
     model = create_model(opt)
     model.setup(opt)
-    # create a website
+    # create a webpage
     web_dir = os.path.join(opt.results_dir, opt.name, '%s_%s' % (opt.phase, opt.epoch))
     webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.epoch))
-    # test with eval mode. This only affects layers like batchnorm and dropout.
-    # pix2pix: we use batchnorm and dropout in the original pix2pix. You can experiment it with and without eval() mode.
-    # print('test')
 
+    # pix2pix: we use batchnorm and dropout in the original pix2pix. You can experiment it with and without eval() mode.
     if opt.eval:
         model.eval()
     for i, data in enumerate(dataset):
@@ -42,10 +35,6 @@ if __name__ == '__main__':
         if i % 5 == 0:
             print('processing (%04d)-th image... %s' % (i, img_path))
         save_images(webpage, visuals, img_path, aspect_ratio=opt.aspect_ratio, width=opt.display_winsize)
-    # save the website
 
-    # splice the image
-    print(webpage.get_image_dir())
-    splice_all_image(webpage.get_image_dir())
-
+    # save the webpage
     webpage.save()

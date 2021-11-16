@@ -3,7 +3,7 @@ from dominate.tags import *
 import os
 
 class HTML:
-    def __init__(self, web_dir, title, reflesh=0):
+    def __init__(self, web_dir, title, refresh=0):
         self.title = title
         self.web_dir = web_dir
         self.img_dir = os.path.join(self.web_dir, 'images')
@@ -14,9 +14,9 @@ class HTML:
         # print(self.img_dir)
 
         self.doc = dominate.document(title=title)
-        if reflesh > 0:
+        if refresh > 0:
             with self.doc.head:
-                meta(http_equiv="reflesh", content=str(reflesh))
+                meta(http_equiv="refresh", content=str(refresh))
 
     def get_image_dir(self):
         return self.img_dir
@@ -46,18 +46,3 @@ class HTML:
         f = open(html_file, 'wt')
         f.write(self.doc.render())
         f.close()
-
-
-if __name__ == '__main__':
-    html = HTML('web/', 'test_html')
-    html.add_header('hello world')
-
-    ims = []
-    txts = []
-    links = []
-    for n in range(4):
-        ims.append('image_%d.png' % n)
-        txts.append('text_%d' % n)
-        links.append('image_%d.png' % n)
-    html.add_images(ims, txts, links)
-    html.save()
