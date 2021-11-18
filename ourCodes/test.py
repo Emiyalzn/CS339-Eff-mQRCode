@@ -1,9 +1,13 @@
 import os
+
+import numpy as np
+
 from options.test_options import TestOptions
 from data import CreateDataLoader
 from models import create_model
 from util.visualizer import save_images
 from util import html
+import time
 
 if __name__ == '__main__':
     opt = TestOptions().parse()
@@ -25,16 +29,25 @@ if __name__ == '__main__':
     # pix2pix: we use batchnorm and dropout in the original pix2pix. You can experiment it with and without eval() mode.
     if opt.eval:
         model.eval()
+    eval_times = np.zeros(len(dataset))
     for i, data in enumerate(dataset):
         if i >= opt.num_test:
             break
+        start = time.time()
         model.set_input(data)
         model.test()
+        end = time.time()
+        eval_times[i] = end - start
         visuals = model.get_current_visuals()
         img_path = model.get_image_paths()
         if i % 5 == 0:
             print('processing (%04d)-th image... %s' % (i, img_path))
         save_images(webpage, visuals, img_path, aspect_ratio=opt.aspect_ratio, width=opt.display_winsize)
+
+    time_mean = np.mean(eval_times)
+    time_std = np.std(eval_times)
+
+    print(f"Statistic of processing time: \n mean: {time_mean:.3f}. \n std: {time_std:.3f}.")
 
     # save the webpage
     webpage.save()
