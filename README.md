@@ -41,5 +41,16 @@ Course Project for CS339: Computer Networks🤗.
 4. xx的解码代码可能需要自己修改一下做到可以开源的地步。(xx)
 5. PPT、论文。(together)
 
+## Citation
+The Pix2Pix GAN is adapted from the paper:
+```
+@article{pix2pix2017,
+  title={Image-to-Image Translation with Conditional Adversarial Networks},
+  author={Isola, Phillip and Zhu, Jun-Yan and Zhou, Tinghui and Efros, Alexei A},
+  journal={CVPR},
+  year={2017}
+}
+```
+
 
 
