@@ -229,7 +229,7 @@ def encrypt(filename):
     Inoise[22*10*ratio:29*10*ratio, 0:7*10*ratio] = img[22*10*ratio:29*10*ratio, 0:7*10*ratio]
 
     # Save Figures
-    # cv2.imshow('Inoise', Inoise)
+    cv2.imshow('Inoise', Inoise)
     # k = cv2.waitKey(0)
     # if k == ord('s'):
     #     cv2.imwrite('mqrcode.png', Inoise*255)
@@ -247,4 +247,4 @@ def encrypt(filename):
     return (Ibound*255).astype(np.uint8)
 
 if __name__ == '__main__':
-    encrypt('mbc19_qrcode.jpg')
+    encrypt('groundTruth.png')
