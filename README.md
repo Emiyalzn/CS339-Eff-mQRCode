@@ -15,7 +15,7 @@ Course Project for CS339: Computer Networks🤗.
 - 一个小idea：加密的过程也许也可以用GAN来替代，可以在做完之后试试看
 ### Report part
 - 答辩PPT，讲稿
-- 大作业报告（倾向于英文报告，比较有逼格，中文也行吧）
+- 大作业报告
 
 ## Environment
 - anaconda, python=3.8 (conda create -n xx python=3.8)
@@ -39,7 +39,7 @@ Course Project for CS339: Computer Networks🤗.
 2. 训练鲁棒模型（loss下降图，acc上升图），保存checkpoint，留作最后在测试集上测试（每隔几个epoch画一个生成出来的二维码清晰度的图，挑最糊的效果好）、画图。（只保留Pix2PixGan，做的fancy一点即可）(lzn)
 3. 解码时间（需要写个二维码decode的代码）、鲁棒性（极端距离和角度）、准确度比较（能在多少张图上work）。=>三种method最终我们胜出。(together)
 4. xx的解码代码可能需要自己修改一下做到可以开源的地步。(xx)
-5. PPT、论文（中or英）。(together)
+5. PPT、论文。(together)
 
 
 
