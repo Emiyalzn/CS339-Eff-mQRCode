@@ -15,8 +15,12 @@ class AlignedDataset(BaseDataset):
         self.opt = opt
         self.root = opt.dataroot
 
-        self.dir_A = os.path.join(opt.dataroot, opt.phase + 'A')
-        self.dir_B = os.path.join(opt.dataroot, opt.phase + 'B')
+        if opt.isTrain:
+            self.dir_A = os.path.join(opt.dataroot, opt.phase + 'A')
+            self.dir_B = os.path.join(opt.dataroot, opt.phase + 'B')
+        else:
+            self.dir_A = os.path.join(opt.dataroot, opt.phase + 'A', opt.subset)
+            self.dir_B = os.path.join(opt.dataroot, opt.phase + 'B', opt.subset)
 
         self.A_paths, self.indices = make_dataset(self.dir_A)
         self.B_paths = make_dataset_from_indices(self.dir_B, self.indices)

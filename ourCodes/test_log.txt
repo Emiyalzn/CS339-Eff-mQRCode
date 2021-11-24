@@ -1,0 +1,1248 @@
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 20                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: best                          
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/20_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch20, Subset:best - Statistic of processing time: 
+ mean: 0.007. 
+ std: 0.048.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 20                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: dist                          	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/20_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch20, Subset:dist - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.067.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 20                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: angle                         	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/20_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch20, Subset:angle - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.075.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 40                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: best                          
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/40_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch40, Subset:best - Statistic of processing time: 
+ mean: 0.007. 
+ std: 0.048.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 40                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: dist                          	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/40_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch40, Subset:dist - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.075.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 40                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: angle                         	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/40_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch40, Subset:angle - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.070.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 60                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: best                          
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/60_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch60, Subset:best - Statistic of processing time: 
+ mean: 0.007. 
+ std: 0.052.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 60                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: dist                          	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/60_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch60, Subset:dist - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.072.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 60                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: angle                         	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/60_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch60, Subset:angle - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.074.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 80                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: best                          
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/80_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch80, Subset:best - Statistic of processing time: 
+ mean: 0.007. 
+ std: 0.053.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 80                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: dist                          	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/80_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch80, Subset:dist - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.072.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 80                            	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: angle                         	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/80_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch80, Subset:angle - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.066.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 100                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: best                          
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/100_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch100, Subset:best - Statistic of processing time: 
+ mean: 0.008. 
+ std: 0.055.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 100                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: dist                          	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/100_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch100, Subset:dist - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.079.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 100                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: angle                         	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/100_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch100, Subset:angle - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.075.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 120                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: best                          
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/120_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch120, Subset:best - Statistic of processing time: 
+ mean: 0.007. 
+ std: 0.050.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 120                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: dist                          	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/120_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch120, Subset:dist - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.069.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 120                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: angle                         	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/120_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch120, Subset:angle - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.070.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 160                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: best                          
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/160_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch160, Subset:best - Statistic of processing time: 
+ mean: 0.008. 
+ std: 0.050.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 160                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: dist                          	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/160_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch160, Subset:dist - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.076.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 160                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: angle                         	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/160_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch160, Subset:angle - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.075.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 200                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: best                          
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/200_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch200, Subset:best - Statistic of processing time: 
+ mean: 0.007. 
+ std: 0.049.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 200                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: dist                          	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/200_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch200, Subset:dist - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.073.
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                 dataroot: ./datasets/qrcode             	[default: None]
+             dataset_mode: aligned                       
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 200                           	[default: latest]
+                     eval: False                         
+             expand_radio: 6                             
+                 fineSize: 256                           
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                 loadSize: 256                           
+         max_dataset_size: inf                           
+                    model: deblurQr_pix2pix_gan          	[default: test]
+               n_layers_D: 3                             
+                     name: deblurPix2PixGAN              	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: True                          	[default: False]
+                 no_lsgan: True                          
+                     norm: batch                         
+                 num_test: inf                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: test                          
+                pool_size: 0                             
+           resize_or_crop: scale_width_and_crop          	[default: resize_and_crop]
+              results_dir: ./results/                    
+           serial_batches: False                         
+                   subset: angle                         	[default: best]
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+datasets [AlignedDataset] was created
+initialize network with normal
+model [DeblurQrCycleGANModel] was created
+loading the model from ./checkpoints/deblurPix2PixGAN/200_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.414 M
+-----------------------------------------------
+Epoch200, Subset:angle - Statistic of processing time: 
+ mean: 0.009. 
+ std: 0.071.
