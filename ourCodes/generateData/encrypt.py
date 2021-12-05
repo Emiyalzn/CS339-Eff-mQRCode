@@ -218,7 +218,7 @@ def encrypt(filename):
 
     ######################################
     ## Add white noise
-    Inoise = addWhiteNoise(Ifake, 0.)
+    Inoise = addWhiteNoise(Ifake, 0.08)
 
     ## Leave the three locator
     # top left
@@ -229,7 +229,7 @@ def encrypt(filename):
     Inoise[22*10*ratio:29*10*ratio, 0:7*10*ratio] = img[22*10*ratio:29*10*ratio, 0:7*10*ratio]
 
     # Save Figures
-    cv2.imshow('Inoise', Inoise)
+    # cv2.imshow('Inoise', Inoise)
     # k = cv2.waitKey(0)
     # if k == ord('s'):
     #     cv2.imwrite('mqrcode.png', Inoise*255)

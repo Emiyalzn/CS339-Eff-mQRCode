@@ -6,7 +6,7 @@ from encrypt import *
 import qrcode
 
 def genQRCode():
-    num = 10000
+    num = 300
     for i in range(num):
         link = f'{i}'
         qr = qrcode.QRCode(
@@ -42,11 +42,11 @@ def getImages(root, num_figs):
 
 def makeVideo():
     path = '../datasets/groundTruth'
-    fileList = getImages(path, 10000)
+    fileList = getImages(path, 100)
     # print(fileList)
     fps = 0.5
     size = (490, 490)
-    video = cv2.VideoWriter("../datasets/mQRCodes.avi", cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, size, False)
+    video = cv2.VideoWriter("../datasets/mQRCodes_8%.avi", cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, size, False)
 
     for item in fileList:
         if item.endswith('.jpg'):
