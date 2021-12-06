@@ -4,9 +4,7 @@ from math import *
 from scipy.interpolate import interp1d
 import cv2
 
-###########################
 # Periodic Functions
-###########################
 # Green Pixels
 def p_g1_func(phase):
     return fmod(round(phase), 2)
@@ -35,9 +33,7 @@ def p4_func(phase):
 def p5_func(phase):
     return abs(1 - fmod(phase / pi, 2))
 
-###########################
 # Phase Functions
-###########################
 # Green Pixels 1
 def phi_g1_func(x, y):
     return x + y
@@ -68,9 +64,7 @@ def phi1_func(x, y):
 def phi2_func(x, y):
     return y
 
-#####################################
-## Compute inverse pm
-#####################################
+# Compute inverse pm
 def pm_inverse(pm_x, pm, y):
     idx = np.argmin(abs(pm - y))
     idx = idx[1]
@@ -85,15 +79,7 @@ def pm_inverse(pm_x, pm, y):
         phase = f1(y)
     return phase
 
-#####################################
-## Functions to blur boundary
-#####################################
-
-#####################################
-## Add Fake Boundary for Camouflage
-## @Input(Iencode): encoded QRcode image
-## @Input(thr): the minimal distance between fake boundary (unit: pixel)
-#####################################
+# Functions to blur boundary
 def addFakeBoundary(Iencode, thr):
     Ifake = Iencode
     nrows = Iencode.shape[0]
@@ -130,11 +116,6 @@ def addFakeBoundary(Iencode, thr):
                     fake_rows.append(xi)
     return Ifake
 
-#####################################
-## Add White Noise
-## @Input(Iencode): encoded QR code image
-## @Input(ratio): ratio of noise
-#####################################
 def addWhiteNoise(Iencode, ratio):
     Inoise = Iencode
     nrows = Iencode.shape[0]
@@ -149,11 +130,6 @@ def addWhiteNoise(Iencode, ratio):
 
     return Inoise
 
-#####################################
-## simulate the camera layer
-## @INPUT(w): width of the camera
-## @INPUT(h): height of the camera
-#####################################
 def simCameraLayer(h, w):
     Icamera = np.zeros((h, w))
     for xi in range(1, h):
@@ -211,14 +187,12 @@ def encrypt(filename):
             else:
                 Iencode[xi, yi] = p_g1_func(phi_g1_func(xi, yi) + 1)
 
-    ######################################
-    ## Add Fake Boundary for Camouflage
+    # Add Fake Boundary for Camouflage
     # Ifake = addFakeBoundary(Iencode, 200)
     Ifake = Iencode
 
-    ######################################
-    ## Add white noise
-    Inoise = addWhiteNoise(Ifake, 0.08)
+    # Add white noise
+    Inoise = addWhiteNoise(Ifake, 0.)
 
     ## Leave the three locator
     # top left
@@ -247,4 +221,4 @@ def encrypt(filename):
     return (Ibound*255).astype(np.uint8)
 
 if __name__ == '__main__':
-    encrypt('groundTruth.png')
+    encrypt('QR_0.jpg')

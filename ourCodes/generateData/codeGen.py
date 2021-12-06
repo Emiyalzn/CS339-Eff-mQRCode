@@ -46,7 +46,7 @@ def makeVideo():
     # print(fileList)
     fps = 0.5
     size = (490, 490)
-    video = cv2.VideoWriter("../datasets/mQRCodes_8%.avi", cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, size, False)
+    video = cv2.VideoWriter("../datasets/mQRCode.avi", cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, size, False)
 
     for item in fileList:
         if item.endswith('.jpg'):
