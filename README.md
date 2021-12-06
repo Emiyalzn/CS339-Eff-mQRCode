@@ -1,4 +1,4 @@
-# CS339-Project
+# CS339-Project: Eff-mQRCode
 Course Project for CS339: Computer Networks🤗.
 
 ## Abstract
@@ -6,6 +6,7 @@ Quick Response (QR) codes have become universal in our life due to their rapid r
 
 ## Pipeline
 Generally, our system pipeline is shown in the figure below. First, we encode data in the form of QR codes. Then we encrypt the QR codes through phase modulation, frequency modulation and adding noise. For decryption, we capture photographs at a right position and decode them using multi-frame algorithm or feeding them into our pretrained GAN. Ultimately, we can get the data from the decrypted QR codes.
+
 ![pipeline](figures/pipeline.png)
 
 ## Environment
